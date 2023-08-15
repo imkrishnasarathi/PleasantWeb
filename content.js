@@ -68,3 +68,50 @@ async function analyzeContent(content){
   let averageScore = allScores.reduce((a, b) => a + b, 0) / allScores.length;
   return { averageScore, isContentInappropriate };
 }
+
+async function processImage(url){
+    const apiKey = '448afee340594daeb8963c1201952ab2';
+    try{
+        const result  = await fetch('https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Key ${apiKey}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                inputs: [
+                    {
+                        data: {
+                            image: {
+                                url: url,
+                            },
+                        },
+                    },
+                ],
+            }),
+        });
+        const info = await result.json();
+        // console.log('Clarifai API Response:', info)
+        try{
+            let analyzedContent = {};
+            if (info.outputs && info.outputs.length > 0) {
+                const recognitionResults = info.outputs[0].data;
+                console.log('Recognition Results:', recognitionResults);
+                
+                analyzedContent = await analyzeContent(`${recognitionResults["concepts"][0].name} ${recognitionResults["concepts"][1].name} ${recognitionResults["concepts"][2].name}`);
+                
+          } else {
+                console.log('No recognition results found.');
+          }
+          return analyzedContent;
+        }
+        catch (err) {
+          console.error(err);
+          return false;
+        }
+    }
+    catch (err) {
+        console.error(err)
+        return false;
+    }
+}
