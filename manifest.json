@@ -1,0 +1,29 @@
+{
+    "name": "PleasantWeb",
+    "version": "1.0.0",
+    "description": "This extension provides awareness about the content within the web page. If any page visited by the user contains any inappropriate content, the user gets flagged.",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "PleasantWeb"
+    },
+    "icons": {
+        "128": "/assets/Logo128.png",
+        "512": "/assets/Logo512.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "/content.js"
+            ]
+        }
+    ],
+    "permissions": ["tabs", "activeTab", "webNavigation", "scripting", "storage"],
+    "manifest_version": 3,
+    "author": "Krishna Sarathi Ghosh"
+}
