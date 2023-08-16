@@ -10,79 +10,6 @@
         padding: 0;
         font-family: Arial, Helvetica, sans-serif;
       }
-      :root.dark {
-        --color-base-bg: rgb(53, 53, 53);
-        --color-base-text: rgb(240, 240, 240);
-        --color-table-border: rgb(255,255,255);
-      }
-
-      :root.light {
-        --color-base-bg: rgb(196, 196, 196);
-        --color-base-text: #2d313a;
-        --color-table-border: rgb(38, 38, 38);
-      }
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-      }
-
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #4a92ff;
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-      }
-
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: rgb(241, 241, 241);
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-      }
-
-      input:checked + .slider {
-        background-color: #484abd;
-      }
-
-      input:checked + .slider:before{
-        background-color: rgb(0, 11, 70);
-      }
-
-      input:focus + .slider {
-        box-shadow: 0 0 1px #484abd;
-      }
-
-      input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
-
-      .slider.round {
-        border-radius: 34px;
-      }
-
-      .slider.round:before {
-        border-radius: 50%;
-      }
       table {
         margin-top: 1rem;
         width: 15rem;
@@ -93,7 +20,7 @@
       table,
       td,
       th {
-        border: 2px solid var(--color-table-border);
+        border: 2px solid #202020;
         border-collapse: collapse;
       }
       th {
@@ -113,15 +40,6 @@
       .container > * {
         display: inline-block;
       }
-      body{
-        color: var(--color-base-text);
-      }
-
-      body {
-        background-color: var(--color-base-bg);
-        padding: 10px;
-      }
-
       .container {
         display: flex;
         align-items: center;
