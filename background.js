@@ -1,13 +1,3 @@
-// chrome.storage.local.get(["wcaTemp"], (data) => {
-//   let a = [];
-//   if (data.wcaTemp){
-//     a = JSON.parse(data.wcaTemp);
-//   }
-//   a.push("Hello I am new");
-//   chrome.storage.local.set({ wcaTemp: JSON.stringify(a) });
-//   console.log(a);
-// });
-
 // Listen for messages from the content script
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   console.log("Message received in background.js:", message);
