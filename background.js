@@ -53,4 +53,18 @@ function setStorageData(data) {
     }).catch(error => {
       console.error(error);
     });
-  }
+}
+
+async function getStorageData() {
+    try {
+      const data = await new Promise((resolve, reject) => {
+        chrome.storage.local.get(["pw"], function (result) {
+          resolve(JSON.parse(result.pw || "[]"));
+        });
+      });
+      return data;
+    } catch (error) {
+      console.error("Error while retrieving data from local storage:", error);
+      return [];
+    }
+}
