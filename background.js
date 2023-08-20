@@ -45,3 +45,12 @@ async function getTheme(){
       return [];
     }
 }
+
+function setStorageData(data) {
+    getStorageData().then(storedData => {
+      storedData.push(data);
+      chrome.storage.local.set({ pw: JSON.stringify(storedData) });
+    }).catch(error => {
+      console.error(error);
+    });
+  }
