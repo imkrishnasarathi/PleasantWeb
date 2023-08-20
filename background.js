@@ -29,4 +29,19 @@ async function setTheme(info) {
         }).catch(error => {
           console.error(error);
         });
-  }
+}
+
+async function getTheme(){
+    try{
+      const data = await new Promise((resolve, reject) => {
+        chrome.storage.local.get(["theme"], function (result) {
+          resolve(JSON.parse(result.theme || "[]"));
+        });
+      })
+      return data;
+    }
+    catch (error){
+      console.error(error);
+      return [];
+    }
+}
