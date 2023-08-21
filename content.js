@@ -1,3 +1,7 @@
+const badwords = document.createElement('script');
+badwords.src = chrome.runtime.getURL('./badwords-master/lib/badwords.js');
+
+
 window.onload = () => {
   analyzeAndStoreData();
 }
