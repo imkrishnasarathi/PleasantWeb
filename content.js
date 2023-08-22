@@ -129,4 +129,8 @@ async function processImage(url) {
       console.error(err);
       return false;
     }
+  } catch (err) {
+    console.error(err);
+    return false;
+  }
 }
