@@ -30,10 +30,12 @@ async function analyzeAndStoreData() {
     const content = document.body.innerText;
     const data = await analyzeContent(content);
     dataToStore = {
-      date: new Date().toLocaleString("en-Us", {timeZone: 'Asia/Kolkata'}),
+      date: new Date().toLocaleString("en-Us", { timeZone: "Asia/Kolkata" }),
       score: data.averageScore,
-      status: data.isContentInappropriate ? "Inappropriate" : "Not Inappropriate",
-      url
+      status: data.isContentInappropriate
+        ? "Inappropriate"
+        : "Not Inappropriate",
+      url,
     };
   }
   setStorageData(dataToStore);
