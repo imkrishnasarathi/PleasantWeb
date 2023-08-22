@@ -22,6 +22,7 @@ async function analyzeAndStoreData() {
   } else {
     const content = document.body.innerText;
     const data = await analyzeContent(content);
+    chrome.runtime.sendMessage({ showSecondaryPopup: true });
     dataToStore = {
       date: new Date().toLocaleString("en-Us", { timeZone: "Asia/Kolkata" }),
       score: data.averageScore,
