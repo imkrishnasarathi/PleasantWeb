@@ -51,8 +51,21 @@ async function analyzeContent(content) {
       headers: {
         "Content-Type": "application/json",
       },
-    }),
-  });
+      body: JSON.stringify({
+        comment: { text: content },
+        languages: ["en"],
+        requestedAttributes: {
+          TOXICITY: {},
+          SEVERE_TOXICITY: {},
+          IDENTITY_ATTACK: {},
+          SEXUALLY_EXPLICIT: {},
+          THREAT: {},
+          PROFANITY: {},
+          FLIRTATION: {},
+        },
+      }),
+    }
+  );
 
   const result = await response.json();
   const allScores = [];
