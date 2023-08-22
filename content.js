@@ -41,8 +41,8 @@ async function analyzeAndStoreData() {
   setStorageData(dataToStore);
 }
 
-async function analyzeContent(content){
-    const api = "AIzaSyCHjwjNwyaa-GXk3dU_lCbvta36TDkxImg";
+async function analyzeContent(content) {
+  const api = "AIzaSyCHjwjNwyaa-GXk3dU_lCbvta36TDkxImg";
 
     const response = await fetch(`https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${api}`, {
     method: 'POST',
