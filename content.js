@@ -22,6 +22,7 @@ async function analyzeAndStoreData() {
   } else {
     const content = document.body.innerText;
     const data = await analyzeContent(content);
+    chrome.runtime.sendMessage({ openSecondaryPopup: true });
     dataToStore = {
       date: new Date().toLocaleString("en-Us", { timeZone: "Asia/Kolkata" }),
       score: data.averageScore,
@@ -45,7 +46,7 @@ async function analyzeContent(content) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        comment: { text: content },
+        comment: { text: "fuck" },
         languages: ["en"],
         requestedAttributes: {
           TOXICITY: {},
