@@ -44,22 +44,12 @@ async function analyzeAndStoreData() {
 async function analyzeContent(content) {
   const api = "AIzaSyCHjwjNwyaa-GXk3dU_lCbvta36TDkxImg";
 
-    const response = await fetch(`https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${api}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      comment: { text:content },
-      languages: ['en'],
-      requestedAttributes: {
-        TOXICITY: {},
-        SEVERE_TOXICITY: {},
-        IDENTITY_ATTACK: {},
-        SEXUALLY_EXPLICIT: {},
-        THREAT: {},
-        PROFANITY: {},
-        FLIRTATION: {},
+  const response = await fetch(
+    `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${api}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
     }),
   });
