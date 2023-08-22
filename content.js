@@ -11,7 +11,6 @@ function getTagsWithText(element) {
     return tag.childNodes.length === 1 && tag.firstChild.nodeType === Node.TEXT_NODE;
   });
 }
-const tagsWithText = getTagsWithText(document.body);
 
 async function analyzeAndStoreData() {
   const url = document.URL;
