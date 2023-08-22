@@ -106,40 +106,27 @@ async function processImage(url) {
                 },
               },
             },
-            body: JSON.stringify({
-                inputs: [
-                    {
-                        data: {
-                            image: {
-                                url: url,
-                            },
-                        },
-                    },
-                ],
-            }),
-        });
-        const info = await result.json();
-        // console.log('Clarifai API Response:', info)
-        try{
-            let analyzedContent = {};
-            if (info.outputs && info.outputs.length > 0) {
-                const recognitionResults = info.outputs[0].data;
-                console.log('Recognition Results:', recognitionResults);
-                
-                analyzedContent = await analyzeContent(`${recognitionResults["concepts"][0].name} ${recognitionResults["concepts"][1].name} ${recognitionResults["concepts"][2].name}`);
-                
-          } else {
-                console.log('No recognition results found.');
-          }
-          return analyzedContent;
-        }
-        catch (err) {
-          console.error(err);
-          return false;
-        }
-    }
-    catch (err) {
-        console.error(err)
-        return false;
+          ],
+        }),
+      }
+    );
+    const info = await result.json();
+    // console.log('Clarifai API Response:', info)
+    try {
+      let analyzedContent = {};
+      if (info.outputs && info.outputs.length > 0) {
+        const recognitionResults = info.outputs[0].data;
+        console.log("Recognition Results:", recognitionResults);
+
+        analyzedContent = await analyzeContent(
+          `${recognitionResults["concepts"][0].name} ${recognitionResults["concepts"][1].name} ${recognitionResults["concepts"][2].name}`
+        );
+      } else {
+        console.log("No recognition results found.");
+      }
+      return analyzedContent;
+    } catch (err) {
+      console.error(err);
+      return false;
     }
 }
