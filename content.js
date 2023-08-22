@@ -1,10 +1,6 @@
-const badwords = document.createElement('script');
-badwords.src = chrome.runtime.getURL('./badwords-master/lib/badwords.js');
-
-
 window.onload = () => {
   analyzeAndStoreData();
-}
+};
 
 function setStorageData(data) {
   chrome.runtime.sendMessage({ target: "setStorageData", data: data });
