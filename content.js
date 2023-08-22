@@ -86,14 +86,25 @@ async function analyzeContent(content) {
   return { averageScore, isContentInappropriate };
 }
 
-async function processImage(url){
-    const apiKey = '448afee340594daeb8963c1201952ab2';
-    try{
-        const result  = await fetch('https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Key ${apiKey}`,
-                'Content-Type': 'application/json',
+async function processImage(url) {
+  const apiKey = "448afee340594daeb8963c1201952ab2";
+  try {
+    const result = await fetch(
+      "https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Key ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          inputs: [
+            {
+              data: {
+                image: {
+                  url: url,
+                },
+              },
             },
             body: JSON.stringify({
                 inputs: [
