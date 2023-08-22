@@ -74,7 +74,7 @@ async function analyzeContent(content) {
   for (const attr in result.attributeScores) {
     const score = result.attributeScores[attr].summaryScore.value;
     if (score > 0.65) {
-    // console.warn(`Content contains potentially harmful attribute: ${attr}. Score: ${score}`);
+      // console.warn(`Content contains potentially harmful attribute: ${attr}. Score: ${score}`);
       isContentInappropriate = true;
     }
     allScores.push(score);
