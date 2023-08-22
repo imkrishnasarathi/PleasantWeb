@@ -6,11 +6,6 @@ function setStorageData(data) {
   chrome.runtime.sendMessage({ target: "setStorageData", data: data });
 }
 
-function getTagsWithText(element) {
-  return Array.from(element.getElementsByTagName('*')).filter(tag => {
-    return tag.childNodes.length === 1 && tag.firstChild.nodeType === Node.TEXT_NODE;
-  });
-}
 
 async function analyzeAndStoreData() {
   const url = document.URL;
