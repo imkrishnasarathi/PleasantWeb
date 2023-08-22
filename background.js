@@ -22,6 +22,7 @@ chrome.runtime.onMessage.addListener((message, sender,sendResponse)=> {
       return true;
 })
 
+
 async function setTheme(info) {
     getTheme().then(storedData => {
           storedData = info;
