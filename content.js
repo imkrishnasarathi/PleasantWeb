@@ -6,7 +6,6 @@ function setStorageData(data) {
   chrome.runtime.sendMessage({ target: "setStorageData", data: data });
 }
 
-
 async function analyzeAndStoreData() {
   const url = document.URL;
   let dataToStore = {};
