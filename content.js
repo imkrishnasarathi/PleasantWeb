@@ -46,7 +46,7 @@ async function analyzeContent(content) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        comment: { text: "fuck" },
+        comment: { text: content },
         languages: ["en"],
         requestedAttributes: {
           TOXICITY: {},
