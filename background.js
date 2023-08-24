@@ -5,6 +5,12 @@ chrome.runtime.onMessage.addListener((message, sender,sendResponse)=> {
     const target = message.target;
     if (message.action === "showNotification") {
       console.log("Received showNotification message");
+      chrome.notifications.create({
+        type: "basic",
+        title: "PleasantWeb - Inappropriate content detected. 🚨",
+        message: "The content detected in the current page may be inappropriate. Proceed at your own risk.",
+        iconUrl: "assets/Logo128.png"
+      });
     }
     switch (target) {
         case "setStorageData":
