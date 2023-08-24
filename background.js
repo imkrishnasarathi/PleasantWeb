@@ -3,6 +3,9 @@
 chrome.runtime.onMessage.addListener((message, sender,sendResponse)=> {
     console.log("Message received in background.js:", message);
     const target = message.target;
+    if (message.action === "showNotification") {
+      console.log("Received showNotification message");
+    }
     switch (target) {
         case "setStorageData":
           setStorageData(message.data);
@@ -18,6 +21,7 @@ chrome.runtime.onMessage.addListener((message, sender,sendResponse)=> {
           break;
         case "setTheme":
           setTheme(message.theme)
+          break;   
       }
       return true;
 })
