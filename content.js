@@ -19,6 +19,9 @@ async function analyzeAndStoreData() {
         : "Not Inappropriate",
       url,
     };
+    if (data.isContentInappropriate === true){
+      chrome.runtime.sendMessage({ action: "showNotification" });
+    }
   } else {
     const content = document.body.innerText;
     const data = await analyzeContent(content);
