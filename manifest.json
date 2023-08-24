@@ -23,7 +23,7 @@
             ]
         }
     ],
-    "permissions": ["tabs", "activeTab", "webNavigation", "scripting", "storage"],
+    "permissions": ["tabs", "activeTab", "webNavigation", "scripting", "storage", "notifications"],
     "manifest_version": 3,
     "author": "Krishna Sarathi Ghosh"
 }
