@@ -89,3 +89,17 @@ async function getStorageData() {
       return [];
     }
 }
+
+async function getExtensionOptions() {
+  try {
+    const data = await new Promise((resolve, reject) => {
+      chrome.storage.local.get(["pwExtensionOptions"], function (result) {
+        resolve(JSON.parse(result.pwExtensionOptions || "[]"));
+      });
+    });
+    return data;
+  } catch (error) {
+      console.error("Error while retrieving data from local storage:", error);
+      return [];
+  }
+}
