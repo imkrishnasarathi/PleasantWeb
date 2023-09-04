@@ -105,9 +105,9 @@ async function analyzeContent(content) {
     allScores.push(score);
   }
   let averageScore = allScores.reduce((a, b) => a + b, 0) / allScores.length;
-  console.log(
-    `average score: ${averageScore} \nis the content inappropriate ${isContentInappropriate}`
-  );
+  // console.log(
+  //   `average score: ${averageScore} \nis the content inappropriate ${isContentInappropriate}`
+  // );
   return { averageScore, isContentInappropriate };
 }
 
