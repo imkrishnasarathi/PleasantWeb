@@ -24,3 +24,8 @@ function getAndSendCheckedFields() {
   })
 }
 
+document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+  checkbox.addEventListener("change", function () {
+    getAndSendCheckedFields();
+  });
+});
