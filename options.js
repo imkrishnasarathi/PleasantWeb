@@ -6,3 +6,21 @@ window.onload = async () => {
     })
   }
 };
+
+function getAndSendCheckedFields() {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  const checkedFields = [];
+
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      checkedFields.push(checkbox.id);
+    }
+  });
+  chrome.runtime.sendMessage({
+    target: "updateCheckedFields",
+    checkedFields,
+  }).then(data => {}).catch(err => {  
+    console.log(err);
+  })
+}
+
