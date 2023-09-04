@@ -57,6 +57,36 @@ const attributes = [
 async function analyzeContent(content) {
   const api = "AIzaSyCHjwjNwyaa-GXk3dU_lCbvta36TDkxImg";
 
+  let extensionOptions = await chrome.runtime.sendMessage({ target : "readCheckedFields" });
+  if (!extensionOptions.length){
+    extensionOptions = attributes;
+  }
+  let requestedAttributes = {};
+
+  extensionOptions.forEach(id => {
+    requestedAttributes[id] = {};
+  });
+
+  let response = null;
+  try{
+      await sleepAsync(1000);
+      response = await fetch(
+        `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${api}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            comment: { text: content },
+            languages: ["en"],
+            requestedAttributes
+          }),
+        }
+      );
+  } catch (error){
+      throw error;
+  }
 
   const result = await response.json();
   const allScores = [];
