@@ -40,6 +40,20 @@ async function analyzeAndStoreData() {
   setStorageData(dataToStore);
 }
 
+function sleepAsync(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const attributes = [
+  "TOXICITY",
+  "SEVERE_TOXICITY",
+  "IDENTITY_ATTACK",
+  "SEXUALLY_EXPLICIT",
+  "THREAT",
+  "PROFANITY",
+  "FLIRTATION"
+];
+
 async function analyzeContent(content) {
   const api = "AIzaSyCHjwjNwyaa-GXk3dU_lCbvta36TDkxImg";
 
