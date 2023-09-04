@@ -27,7 +27,17 @@ chrome.runtime.onMessage.addListener((message, sender,sendResponse)=> {
           break;
         case "setTheme":
           setTheme(message.theme)
-          break;   
+          break;
+        case "updateCheckedFields":
+          chrome.storage.local.set({ pwExtensionOptions : JSON.stringify(message.checkedFields) });
+          break;
+        case "readCheckedFields":
+          getExtensionOptions().then(extensionOptions => {
+            sendResponse(extensionOptions);
+          });
+          
+          break;
+
       }
       return true;
 })
