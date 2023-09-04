@@ -2,7 +2,7 @@
 
 chrome.runtime.onMessage.addListener((message, sender,sendResponse)=> {
     console.log("Message received in background.js:", message);
-    const target = message.target;
+    const target = message?.target || null;
     if (message.action === "showNotification") {
       console.log("Received showNotification message");
       chrome.notifications.create({
