@@ -1,6 +1,6 @@
 {
     "name": "PleasantWeb",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "description": "This extension provides awareness about the content within the web page. If any page visited by the user contains any inappropriate content, the user gets flagged.",
     "background": {
         "service_worker": "background.js"
