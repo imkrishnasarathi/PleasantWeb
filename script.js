@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (response.length > 0) {
         let strHtml = "";
         response.forEach(data => {
-          strHtml += `<tr><td>${data.date}</td><td>${data.score}</td><td style="text-align: center">${data.status==="Inappropriate"?"⚠️":"✅"}</td><td>${(data.url).trim()}</td></tr>`;
+          strHtml += `<tr><td>${data.date}</td><td>${data.score !== null?data.score:"There was some problem getting the score"}</td><td style="text-align: center">${data.status==="Inappropriate"?"⚠️":"✅"}</td><td>${(data.url).trim()}</td></tr>`;
         });
         document.getElementById("storeDataBody").innerHTML = strHtml;
       }
