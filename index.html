@@ -5,139 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebContentAlerts</title>
     <style>
-      *{
-        margin: 0;
-        padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      :root.dark {
-        --color-base-bg: rgb(53, 53, 53);
-        --color-base-text: rgb(240, 240, 240);
-        --color-table-border: rgb(255,255,255);
-      }
+    /* :root styles for light theme */
+    :root.light {
+  --color-base-bg: #f0f0f0; /* Light gray background */
+  --color-base-text: #333; /* Dark gray text */
+  --color-table-border: #999; /* Light gray for table borders */
+}
 
-      :root.light {
-        --color-base-bg: rgb(196, 196, 196);
-        --color-base-text: #2d313a;
-        --color-table-border: rgb(38, 38, 38);
-      }
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-      }
+/* :root styles for dark theme */
+:root.dark {
+  --color-base-bg: #333; /* Dark background */
+  --color-base-text: #f0f0f0; /* Light text */
+  --color-table-border: #666; /* Dark gray for table borders */
+}
 
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-base-bg);
+  padding: 10px;
+  color: var(--color-base-text);
+  margin: 0;
+  font-size: 17px; /* Increase font size a bit */
+}
 
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #4a92ff;
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-      }
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: rgb(241, 241, 241);
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-      }
+/* Header styles */
+#cnt {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center horizontally and vertically */
+  margin-bottom: 20px;
+}
 
-      input:checked + .slider {
-        background-color: #484abd;
-      }
+h1 {
+  margin-right: 20px;
+  font-size: 20px; /* Increase font size a bit */
+}
 
-      input:checked + .slider:before{
-        background-color: rgb(241, 241, 241);
-      }
+/* Dark mode toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-top: 4px;
+}
 
-      input:focus + .slider {
-        box-shadow: 0 0 1px #484abd;
-      }
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
-      input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #4a92ff;
+  border-radius: 17px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
 
-      .slider.round {
-        border-radius: 34px;
-      }
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(241, 241, 241);
+  border-radius: 50%;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
 
-      .slider.round:before {
-        border-radius: 50%;
-      }
-      table {
-        margin-top: 1rem;
-        width: 15rem;
-      }
-      h1{
-        margin-right: 20px;
-      }
-      table,
-      td,
-      th {
-        border: 2px solid var(--color-table-border);
-        border-collapse: collapse;
-      }
-      th {
-        font-size: medium;
-        padding: 0.2rem 1rem;
-      }
-      td{
-        padding: 0.5rem 1rem;
-      }
+input:checked + .slider {
+  background-color: #484abd;
+}
 
-      .container {
-        display: block;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .container > * {
-        display: inline-block;
-      }
-      body{
-        color: var(--color-base-text);
-      }
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
 
-      body {
-        background-color: var(--color-base-bg);
-        padding: 10px;
-      }
+/* Table styles */
+table {
+  margin-top: 1rem;
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid var(--color-table-border); /* Add table border */
+}
 
-      .container {
-        display: flex;
-        align-items: center;
-      }
+th, td {
+  border: 2px solid var(--color-table-border);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid transparent; /* Add underline to table rows */
+  font-size: 18px; /* Increase font size for table data */
+}
 
-      thead, tbody, td, tr, th {
-        font-size: 1rem;
-      }
-      td{
-        max-width: 200px;
-        word-wrap: break-word;
-      }
-      #overlay{
-        display: none;
-      }
+th {
+  font-size: medium;
+}
+
+td {
+  max-width: 200px;
+  word-wrap: break-word;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer p {
+  font-size: 14px;
+  color: #888;
+}
+
+/* Hyperlink styles */
+a {
+  color: #4a92ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
     </style>
   </head>
@@ -148,12 +152,6 @@
         <input class="theme-toggle" type="checkbox" />
         <span class="slider round"></span>
       </label>
-    </div>
-    <div class="overlay" id="overlay">
-        <img src="assets/Logo512.png" alt="PleasantWeb Logo">
-    <h1>Content Inappropriate</h1>
-    <p>This page may contain inappropriate content. We take this matter seriously and strive to maintain a safe and respectful environment for all users.</p>
-        <button id="closeSecondaryPopup">Close</button>
     </div>
     <div class="content">
       <table>
