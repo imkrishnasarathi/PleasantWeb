@@ -30,13 +30,11 @@ PleasantWeb is a smart browser extension designed to enhance your online experie
 
 We welcome contributions from everyone! Whether its code or documentation, your contributions are valuable to us.
 
-- Ask to be assigned to a esisting issue or create a new one and wait to be assigned
+- Ask to be assigned to a existing issue or create a new one and wait to be assigned
 - Fork this Repository using the button at the top on the right corner.
-- Clone your forked repository to your PC ( git clone "url from clone option.)
-- Create a new branch for your modifications (ie. `git branch new-user` and check it out  `git checkout new-user` or simply do `git checkout -b new-user`)
+- Clone your forked repository to your PC ( `git clone "url"` from clone option.)
+- Create a new branch for your modifications (i.e. `git branch new-user` and check it out  `git checkout new-user` or simply do `git checkout -b new-user`)
 - Make your changes
-- Add your files (`git add -A`), commit (`git commit -m "added myself"`) and push (`git push origin new-user`)
-- Create a pull request
 - Star this repository
 
 
