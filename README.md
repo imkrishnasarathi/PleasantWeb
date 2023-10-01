@@ -17,7 +17,7 @@ PleasantWeb is a smart browser extension designed to enhance your online experie
 
 ## Languages Used
 
-- Vanilla Java Script
+- Vanilla JavaScript
 - CSS
 - HTML
 
