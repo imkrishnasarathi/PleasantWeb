@@ -1,3 +1,5 @@
+import apiKey from "./apiKey";
+import apiKey from "./apiKey";
 window.onload = () => {
   analyzeAndStoreData();
 };
@@ -112,6 +114,7 @@ async function analyzeContent(content) {
 }
 
 async function processImage(url) {
+  const apiKey = apiKey;
   try {
     const result = await fetch(
       "https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs",
