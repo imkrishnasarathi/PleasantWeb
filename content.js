@@ -112,7 +112,6 @@ async function analyzeContent(content) {
 }
 
 async function processImage(url) {
-  const apiKey = "f14be9562f264dd58d631f1734c52b9f";
   try {
     const result = await fetch(
       "https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs",
