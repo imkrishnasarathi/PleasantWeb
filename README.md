@@ -37,6 +37,13 @@ We welcome contributions from everyone! Whether its code or documentation, your 
 - Make your changes
 - Star this repository
 
+## How To Run The Extension
+
+1. **Download** the zip code and extract it on your pc.
+2. **Open** extension manager page from chrome settings.
+3. **Turn** on developer mode.
+4. **Click** on "load unpacked" and select the extracted folder on your pc.
+5. **Congrats**, you have added the extension on chrome.
 
 ## Getting Started
 
