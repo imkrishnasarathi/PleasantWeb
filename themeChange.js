@@ -1,32 +1,28 @@
-//responsible for changing the theme of the page
-function setTheme() {
-  const root = document.documentElement;
-  const newTheme = root.className === "dark" ? "light" : "dark";
-  root.className = newTheme;
-
+function toggleTheme() {
+  const htmlElement = document.documentElement;
   const themeToggle = document.querySelector(".theme-toggle");
-  const isThemeChecked = themeToggle.checked;
 
-  chrome.storage.local.set(
-    { theme: newTheme, themeChecked: isThemeChecked },
-    function () {
-      console.log("Theme and state saved:", newTheme, isThemeChecked);
-    }
-  );
+  if (themeToggle.checked) {
+    htmlElement.classList.remove("light");
+    htmlElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  } else {
+    htmlElement.classList.remove("dark");
+    htmlElement.classList.add("light");
+    localStorage.setItem("theme", "light");
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  chrome.storage.local.get(["theme", "themeChecked"], function (data) {
-    const savedTheme = data.theme;
-    const savedThemeChecked = data.themeChecked;
-    if (savedTheme) {
-      const root = document.documentElement;
-      root.className = savedTheme;
+  const savedTheme = localStorage.getItem("theme");
+  const themeToggle = document.querySelector(".theme-toggle");
 
-      const themeToggle = document.querySelector(".theme-toggle");
-      themeToggle.checked = savedThemeChecked;
-    }
-  });
+  if (savedTheme === "dark") {
+    themeToggle.checked = true;
+    toggleTheme(); 
+  } else {
+    themeToggle.checked = false;
+  }
 
-  document.querySelector(".theme-toggle").addEventListener("click", setTheme);
+  themeToggle.addEventListener("change", toggleTheme);
 });
