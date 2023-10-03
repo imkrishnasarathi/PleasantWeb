@@ -55,7 +55,6 @@ const attributes = [
 ];
 
 async function analyzeContent(content) {
-  const api = "AIzaSyCHjwjNwyaa-GXk3dU_lCbvta36TDkxImg";
 
   let extensionOptions = await chrome.runtime.sendMessage({ target : "readCheckedFields" });
   if (!extensionOptions.length){
@@ -71,7 +70,7 @@ async function analyzeContent(content) {
   try{
       await sleepAsync(1000);
       response = await fetch(
-        `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${api}`,
+        `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${config.api}`,
         {
           method: "POST",
           headers: {
@@ -112,14 +111,13 @@ async function analyzeContent(content) {
 }
 
 async function processImage(url) {
-  const apiKey = "f14be9562f264dd58d631f1734c52b9f";
   try {
     const result = await fetch(
       "https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs",
       {
         method: "POST",
         headers: {
-          Authorization: `Key ${apiKey}`,
+          Authorization: `Key ${config.apiKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
