@@ -67,4 +67,6 @@ git push origin main
 7. Wait for your Pull Request to be reviewed and merged!
 
 Please ensure that your code is properly commented and follows best practices.
+
+[![Open Source Helpers](https://www.codetriage.com/imkrishnasarathi/pleasantweb/badges/users.svg)](https://www.codetriage.com/imkrishnasarathi/pleasantweb)
   
