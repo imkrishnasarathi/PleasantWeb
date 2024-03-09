@@ -3,7 +3,7 @@
   <head>
     <title>Extension Options</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
       :root {
         --form-control-disabled: #959495;
@@ -17,19 +17,26 @@
 
       h1 {
         font-size: 2.5rem;
-        font-weight: bold;
+        font-weight: 700;
         text-align: center;
         color: #0078d4;
-        text-transform: uppercase;
-        margin-bottom: 20px;
+        margin: 0px;
+        width: 100%;
         letter-spacing: 3px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 30px 0px;
+        background-color: #fff;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
       }
 
       h2 {
         font-size: 1.8rem;
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+        margin-top: 0px;
+      }
+
+      .options_checkboxes {
+        padding: 30px 0px;
       }
 
       .content {
@@ -37,8 +44,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #fff;
-        padding: 20px;
+        background-color: #f1f1f1;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
       }
@@ -71,6 +77,13 @@
         transform: translateY(-0.075em);
         display: grid;
         place-content: center;
+        -webkit-transition: 120ms background-color ease-in-out;
+        -ms-transition: 120ms background-color ease-in-out;
+        transition: 120ms background-color ease-in-out;
+      }
+
+      input[type="checkbox"]:checked {
+        background-color: #0078d4;
       }
 
       input[type="checkbox"]::before {
@@ -80,7 +93,7 @@
         transform: scale(0);
         transition: 120ms transform ease-in-out;
         box-shadow: inset 1em 1em var(--form-control-color);
-        background-color: green;
+        background-color: #FFF;
         transform-origin: bottom;
         clip-path: polygon(
           14% 44%,
@@ -110,36 +123,38 @@
   <body>
     <div class="content">
       <h1>Extension Options</h1>
-      <h2>What do you want to be notified of?</h2>
-      <div id="checkboxes">
-        <label class="form-control">
-          <input type="checkbox" id="TOXICITY" />
-          Toxicity
-        </label>
-        <label class="form-control">
-          <input type="checkbox" id="SEVERE_TOXICITY" />
-          Severe Toxicity
-        </label>
-        <label class="form-control">
-          <input type="checkbox" id="IDENTITY_ATTACK" />
-          Identity Attack
-        </label>
-        <label class="form-control">
-          <input type="checkbox" id="SEXUALLY_EXPLICIT" />
-          Sexually Explicit
-        </label>
-        <label class="form-control">
-          <input type="checkbox" id="THREAT" />
-          Threat
-        </label>
-        <label class="form-control">
-          <input type="checkbox" id="PROFANITY" />
-          Profanity
-        </label>
-        <label class="form-control">
-          <input type="checkbox" id="FLIRTATION" />
-          Flirtation
-        </label>
+      <div class="options_checkboxes">
+        <h2>What do you want to be notified of?</h2>
+        <div id="checkboxes">
+          <label class="form-control">
+            <input type="checkbox" id="TOXICITY" />
+            Toxicity
+          </label>
+          <label class="form-control">
+            <input type="checkbox" id="SEVERE_TOXICITY" />
+            Severe Toxicity
+          </label>
+          <label class="form-control">
+            <input type="checkbox" id="IDENTITY_ATTACK" />
+            Identity Attack
+          </label>
+          <label class="form-control">
+            <input type="checkbox" id="SEXUALLY_EXPLICIT" />
+            Sexually Explicit
+          </label>
+          <label class="form-control">
+            <input type="checkbox" id="THREAT" />
+            Threat
+          </label>
+          <label class="form-control">
+            <input type="checkbox" id="PROFANITY" />
+            Profanity
+          </label>
+          <label class="form-control">
+            <input type="checkbox" id="FLIRTATION" />
+            Flirtation
+          </label>
+        </div>
       </div>
     </div>
     <script src="options.js"></script>
