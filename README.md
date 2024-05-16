@@ -1,4 +1,4 @@
-# PleasantWeb-Buildspace-Extension
+# PleasantWeb
 
 PleasantWeb is a smart browser extension that alerts users of unsuitable content online. It can detect both images (opened in new tabs) and text!
 
