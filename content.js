@@ -55,7 +55,7 @@ const attributes = [
 ];
 
 async function analyzeContent(content) {
-  const api = "AIzaSyCHjwjNwyaa-GXk3dU_lCbvta36TDkxImg";
+  const api = "API-Key-Perspective";
 
   let extensionOptions = await chrome.runtime.sendMessage({ target : "readCheckedFields" });
   if (!extensionOptions.length){
